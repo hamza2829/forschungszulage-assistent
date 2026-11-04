@@ -1,0 +1,48 @@
+# Amtliche Werte am 04.11.2026 geprüft. Vor jeder Nutzung erneut prüfen.
+# Die zeitliche Begrenzung auf 2026 ist ein bewusster Anwendungsumfang dieses Werkzeugs.
+expense_valid_from: 2026-01-01
+expense_valid_until: 2026-12-31
+rates:
+  standard_allowance:
+    value: '0.25'
+    unit: Anteil
+    kind: gesetzlich
+    source: https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Forschungszulagen/2026-10-27-gewaehrung-von-forschungszulage.pdf?__blob=publicationFile&v=7
+    stand: 2026-11-04
+    note: BMF Rn. 188; § 4 Abs. 1 FZulG.
+  sme_allowance:
+    value: '0.35'
+    unit: Anteil
+    kind: gesetzlich
+    source: https://www.bescheinigung-forschungszulage.de/neu-hier
+    stand: 2026-11-04
+    note: Nur bei erfüllter KMU-Definition und beantragter Erhöhung; BMF Rn. 188.
+  annual_base_cap:
+    value: '12000000'
+    unit: EUR je Wirtschaftsjahr
+    kind: gesetzlich
+    source: https://www.bescheinigung-forschungszulage.de/steuerliches-investitionssofortprogramm
+    stand: 2026-11-04
+    note: Für Aufwendungen ab 2026; BMF Rn. 166b und 174; alle Vorhaben und verbundene Unternehmen zusammen.
+  project_aid_cap:
+    value: '15000000'
+    unit: EUR je Unternehmen und FuE-Vorhaben
+    kind: gesetzlich
+    source: https://www.gesetze-im-internet.de/fzulg/__4.html
+    stand: 2026-11-04
+    note: Einschließlich anderer staatlicher Beihilfen; BMF Rn. 191 ff.
+  overhead:
+    value: '0.20'
+    unit: Anteil
+    kind: gesetzlich
+    source: https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Forschungszulagen/2026-10-27-gewaehrung-von-forschungszulage.pdf?__blob=publicationFile&v=7
+    stand: 2026-11-04
+    note: BMF Rn. 154a bis 154c; nur Vorhabenbeginn nach 31.12.2025, hier nur auf berücksichtigte Personalkosten.
+  hours_per_person_day:
+    value: '8'
+    unit: Stunden je geplantem Personentag
+    kind: Planungsannahme
+    source: https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Forschungszulagen/2026-10-27-gewaehrung-von-forschungszulage.pdf?__blob=publicationFile&v=7
+    stand: 2026-11-04
+    note: Frei gewählte Umrechnungsannahme, kein gesetzlicher Tagessatz. BMF Rn. 122 bis 128 verlangen tatsächliche Stundenaufzeichnungen.
+overhead_project_start_from: 2026-01-01

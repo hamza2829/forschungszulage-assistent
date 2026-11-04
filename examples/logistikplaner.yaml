@@ -1,0 +1,66 @@
+title: Adaptiver Tourenplaner für synthetische Liefernetze
+organization: Fiktiva Logistiklabor GmbH
+goal: Ein Verfahren soll unter wechselnden Aufträgen die Planstabilität gegenüber einer festgelegten heuristischen Basis verbessern. Ziel sind mindestens 15 Prozent weniger Umplanungen bei gleicher Einhaltung der Zeitfenster.
+technical_problem: Im synthetischen Liefernetz wechseln Aufträge während der Planung. Die Kombination aus knappen Zeitfenstern und unvollständigen Laufzeitinformationen führt bei der bisherigen Heuristik zu instabilen Plänen.
+state_of_art: Eine einfache Einfügeheuristik und ein statischer Optimierer dienen als Vergleich. Beide Verfahren werden auf identischen synthetischen Instanzen mit dokumentierten Parametern untersucht. Literaturbelege sind noch zu ergänzen.
+novelty: Untersucht wird eine neue Kopplung von Unsicherheitsschätzung und lokaler Nachplanung. Der angestrebte Erkenntnisgewinn betrifft den Zusammenhang zwischen Schätzfehlern und stabiler Lösungsqualität gegenüber den beiden Referenzen.
+hypothesis: Eine explizite Begrenzung der durch Schätzunsicherheit ausgelösten Suchschritte kann die Anzahl unnötiger Umplanungen reduzieren, ohne die Einhaltung der Zeitfenster zu verschlechtern.
+approach: Zwei eigene Varianten der Nachplanung werden in Ablationsversuchen gegen beide Referenzverfahren getestet. Unterschiedliche Lastmuster und Schätzfehler werden kontrolliert variiert.
+technical_uncertainty: Es ist technisch unklar, ob die adaptive Suchbegrenzung bei stark wechselnder Last konvergiert. Das Verfahren kann an widersprüchlichen Zeitfenstern scheitern und dann schlechter als die Referenz werden.
+measurement_plan: Für 100 synthetische Instanzen werden Umplanungszahl, Zeitfensterverletzungen und Laufzeit gemessen. Je Variante erfolgen 20 Wiederholungen mit festgehaltenen Zufallswerten und einem vorher festgelegten Vergleich.
+reproducibility_plan: Generator, Instanzen, Parameter, Softwareversionen und Zufallswerte werden versioniert. Ein Auswertungsskript rekonstruiert die Tabellen aus unveränderten Rohdaten und protokolliert die Versuchsumgebung.
+risks: Bei ausbleibender Verbesserung werden die Hypothesen dokumentiert verworfen. Ein Abbruchkriterium ist eine anhaltende Verschlechterung der Zeitfensterquote gegenüber der Basis. Produktintegration bleibt ein getrenntes Routinepaket.
+standard_methods_only: false
+start: 2026-01-05
+end: 2026-11-30
+sme_claim: true
+other_annual_base: {}
+other_project_aid: '0'
+personnel:
+  - id: ada
+    name: Ada Beispiel
+    hourly_rate: '50'
+    hourly_employer_contribution: '10'
+  - id: ben
+    name: Ben Muster
+    monthly_salary: '4800'
+    monthly_hours: '160'
+    hourly_employer_contribution: '6'
+work_packages:
+  - id: F1
+    title: Referenzen und Hypothesenvergleich
+    description: Referenzverfahren und synthetische Lastmuster werden aufgebaut und für die experimentellen Vergleiche dokumentiert.
+    method: Kontrollierte Vergleichsversuche mit unveränderten Instanzen und getrennten Entwicklungsdaten.
+    deliverable: Versionierter Versuchsplan mit Referenzmessungen und begründeter Auswahl der untersuchten Varianten.
+    start: 2026-01-05
+    end: 2026-03-31
+    activity: research
+    assignments:
+      - person_id: ada
+        person_days: '20'
+      - person_id: ben
+        person_days: '15'
+  - id: F2
+    title: Experimentelle adaptive Nachplanung
+    description: Eigene Varianten werden implementiert, systematisch variiert und gegen die dokumentierten Referenzen ausgewertet.
+    method: Ablationsstudien mit 20 Wiederholungen je Lastmuster und einem vorab definierten Bewertungsschema.
+    deliverable: Messdaten und Auswertung zu Lösungsqualität, Planstabilität und Grenzen der vorgeschlagenen Kopplung.
+    start: 2026-04-01
+    end: 2026-09-30
+    activity: research
+    assignments:
+      - person_id: ada
+        person_days: '35'
+      - person_id: ben
+        person_days: '25'
+  - id: R1
+    title: Routineintegration in eine Demonstrationsoberfläche
+    description: Eine bekannte Benutzeroberfläche wird an die fertige Versuchsschnittstelle angebunden.
+    method: Anwendung dokumentierter Standardschnittstellen und gewöhnlicher Integrationstests.
+    deliverable: Demonstrationsoberfläche ohne neuen wissenschaftlichen oder technischen Erkenntnisbeitrag.
+    start: 2026-10-01
+    end: 2026-11-30
+    activity: routine
+    assignments:
+      - person_id: ada
+        person_days: '10'

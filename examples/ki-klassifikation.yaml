@@ -1,0 +1,51 @@
+title: Robuste Klassifikation synthetischer Materialbilder bei Datendrift
+organization: Musterbild Forschung GmbH
+goal: Untersucht wird eine eigene Kalibrierung, die bei veränderten synthetischen Bildbedingungen eine Falschzuordnungsrate unter fünf Prozent und eine definierte Erkennungsquote unbekannter Klassen erreicht.
+technical_problem: Ein vorhandener Klassifikator ordnet synthetische Bildmuster bei veränderten Texturen häufig mit hoher Sicherheit falsch zu. Eine belastbare Trennung von unbekannten Mustern und bekannten Klassen fehlt.
+state_of_art: Ein unveränderter Klassifikator und eine einfache Temperaturskalierung bilden die Referenz. Die Vergleichsverfahren werden mit getrennten Trainings-, Kalibrierungs- und Testdaten untersucht.
+novelty: Die Studie untersucht eine eigene Kopplung von Merkmalsabständen und adaptiver Kalibrierung bei kontrolliertem Drift. Erkenntnisziel sind die Grenzen dieser Kopplung bei unbekannten Klassen gegenüber einer festen Kalibrierung.
+hypothesis: Eine getrennte Modellierung von Merkmalsabstand und Kalibrierfehler kann unbekannte Muster zuverlässiger zurückweisen, ohne die Genauigkeit auf bekannten Klassen stark zu senken.
+approach: Eigene Varianten mit und ohne Abstandskorrektur werden in einer Ablationsstudie verglichen. Stärke und Art des synthetischen Drift werden getrennt variiert und gegen eine feste Referenz ausgewertet.
+technical_uncertainty: Es ist ungewiss, ob die algorithmische Kopplung bei gleichzeitigem Texturdrift und seltenen Klassen stabil bleibt. Das technische Risiko besteht in einer systematischen Fehlkalibrierung trotz guter Trainingswerte.
+measurement_plan: Erfasst werden Fehlerrate, Kalibrierfehler und Zurückweisungsquote für fünf Driftstufen. Jede Variante wird mit zehn festgehaltenen Zufallswerten auf unveränderten Testdaten ausgewertet.
+reproducibility_plan: Datengenerator, Modellstände, Umgebungsdateien, Zufallswerte und Auswertungsskripte werden versioniert. Alle Rohmessungen bleiben mit ihrem Versuchsschlüssel erhalten und können erneut ausgewertet werden.
+risks: Schlägt die Kopplung bei seltenen Klassen fehl, werden die Grenzen beschrieben und eine alternative Kalibrierung untersucht. Ein kommerzieller Einsatz wird aus diesen Versuchen nicht abgeleitet.
+standard_methods_only: false
+start: 2026-02-01
+end: 2026-12-15
+sme_claim: false
+personnel:
+  - id: clara
+    name: Clara Fiktiv
+    hourly_rate: '62.50'
+  - id: dan
+    name: Dan Beispiel
+    monthly_salary: '6000'
+    monthly_hours: '160'
+work_packages:
+  - id: K1
+    title: Driftmodell und Versuchsplan
+    description: Der synthetische Generator und die Referenzverfahren werden für kontrollierbare Driftstufen vorbereitet.
+    method: Vergleich einer festen Kalibrierung mit systematisch variierten Driftparametern auf getrennten Datensätzen.
+    deliverable: Versionierter Datengenerator und Referenzmessungen für alle geplanten Driftstufen.
+    start: 2026-02-01
+    end: 2026-05-31
+    assignments:
+      - person_id: clara
+        person_days: '25'
+        research_fraction: '0.8'
+      - person_id: dan
+        person_days: '20'
+  - id: K2
+    title: Kalibrierung und Ablationsversuche
+    description: Die eigenen Varianten werden unter kontrolliertem Drift untersucht und ihre Grenzen quantifiziert.
+    method: Ablationsstudien mit identischen Testdaten, zehn Wiederholungen und vorab festgelegten Qualitätsmaßen.
+    deliverable: Rohmessungen und Auswertung der Fehlkalibrierung einschließlich negativer Ergebnisse und Grenzen.
+    start: 2026-06-01
+    end: 2026-12-15
+    assignments:
+      - person_id: clara
+        person_days: '45'
+      - person_id: dan
+        person_days: '40'
+        already_funded_costs: '1000'

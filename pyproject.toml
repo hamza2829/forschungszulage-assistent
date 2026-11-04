@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "forschungszulage-assistent"
+version = "1.0.0"
+description = "Regelbasierte Entwurfshilfe für Software-FuE-Projekte"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1", "pydantic>=2.10,<3", "Jinja2>=3.1.6,<4", "PyYAML>=6.0.2,<7", "reportlab>=4.4,<5", "uvicorn>=0.34,<1"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3,<10", "pytest-cov>=6,<8", "httpx>=0.28,<1", "pypdf>=5,<7"]
+
+[project.scripts]
+forschungszulage = "forschungszulage.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+forschungszulage = ["templates/*.j2", "data/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=forschungszulage --cov-report=term-missing --cov-report=xml --cov-report=html --cov-fail-under=80 --junitxml=ci-output/pytest.xml"
+
+[tool.coverage.run]
+branch = true
+source = ["forschungszulage"]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+fail_under = 80

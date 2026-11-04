@@ -1,0 +1,74 @@
+# Projektbeschreibung: {{ project.title|md }}
+
+**ENTWURF. {{ disclaimer }}**
+
+Unternehmen: {{ project.organization|md }}
+
+Projektzeitraum: {{ project.start }} bis {{ project.end }}
+
+{% for title, text in sections %}
+## {{ title }}
+
+{{ text|md }}
+
+{% endfor %}
+## Arbeitspakete
+
+{% for wp in project.work_packages %}
+### {{ wp.id|md }}: {{ wp.title|md }}
+
+{{ (wp.description or '[OFFEN: Beschreibung ergänzen.]')|md }}
+
+Methode: {{ (wp.method or '[OFFEN]')|md }}
+
+Ergebnis: {{ (wp.deliverable or '[OFFEN]')|md }}
+
+Zeitraum: {{ wp.start }} bis {{ wp.end }}. Tätigkeit laut Eingabe: {{ wp.activity }}.
+
+| Person-ID | Personentage | FuE-Anteil | Anderweitig geförderte Kosten |
+| --- | ---: | ---: | ---: |
+{% for a in wp.assignments %}
+| {{ a.person_id|md }} | {{ a.person_days }} | {{ a.research_fraction }} | {{ a.already_funded_costs|eur }} |
+{% endfor %}
+
+{% else %}
+[OFFEN: Arbeitspakete, Ergebnisse und Personenaufwände ergänzen.]
+
+{% endfor %}
+## Zeitplan
+
+| AP | Beginn | Ende | Erwartetes Ergebnis |
+| --- | --- | --- | --- |
+{% for wp in project.work_packages %}
+| {{ wp.id|md }} | {{ wp.start }} | {{ wp.end }} | {{ (wp.deliverable or '[OFFEN]')|md }} |
+{% endfor %}
+
+## FuE-Check
+
+{{ check.meaning }}
+
+{% for r in check.criteria + [check.routine] %}
+- **{{ r.criterion }}: {{ r.status }}**. {{ r.reason }} Frage: {{ r.question }}
+{% endfor %}
+
+## Kostenplanung unter Annahmen
+
+{{ table }}
+
+Basis vor Jahresgrenze: {{ calculation.totals.base_before_cap|eur }}. Kürzung: {{ calculation.totals.base_reduction|eur }}.
+
+{% for warning in calculation.warnings %}
+- {{ warning }}
+{% endfor %}
+
+## Offene Punkte
+
+{% for point in points %}
+- [OFFEN] {{ point }}
+{% endfor %}
+
+## Verwendete Sätze und Quellen
+
+{% for key, rate in calculation.config.rates.items() %}
+- {{ key }}: {{ rate.value }} {{ rate.unit }}; {{ rate.kind }}; Stand {{ rate.stand }}. {{ rate.note }} Quelle: {{ rate.source }}
+{% endfor %}

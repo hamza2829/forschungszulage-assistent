@@ -1,0 +1,29 @@
+{
+  "title": "Standardisierte Datenplattform für synthetische Verkaufsdaten",
+  "organization": "Dateninsel Beispiel GmbH",
+  "goal": "Bekannte Datenquellen sollen über dokumentierte Konnektoren in eine zentrale Plattform integriert werden. Eine bestehende Standardsoftware erstellt daraus tägliche Berichte.",
+  "technical_problem": "Mehrere synthetische Datenformate werden bisher getrennt verarbeitet. Vorhandene Konnektoren und dokumentierte Transformationen sollen die manuelle Übertragung ersetzen.",
+  "state_of_art": "Die Herstellerdokumentation beschreibt alle benötigten Konnektoren, Transformationen und Berichtsfunktionen. Die Einführung erfolgt mit unveränderten Standardmethoden.",
+  "novelty": "Neu im eigenen Unternehmen.",
+  "hypothesis": "",
+  "approach": "Konfiguration vorhandener Konnektoren, bekannte Datentransformationen und Einrichtung einer Standardoberfläche.",
+  "technical_uncertainty": "",
+  "measurement_plan": "Integrationstests erfolgreich.",
+  "reproducibility_plan": "OFFEN",
+  "risks": "Terminverzögerungen und Schulungsbedarf im Projektteam.",
+  "standard_methods_only": true,
+  "start": "2026-03-01",
+  "end": "2026-07-31",
+  "personnel": [{"id": "eva", "name": "Eva Muster", "hourly_rate": "45"}],
+  "work_packages": [{
+    "id": "D1",
+    "title": "Standardkonnektoren konfigurieren",
+    "description": "Bekannte Konnektoren werden eingerichtet und mit synthetischen Beispieldaten auf korrekte Übertragung geprüft.",
+    "method": "Konfiguration nach vorhandener Herstellerdokumentation und gewöhnliche Integrationstests.",
+    "deliverable": "Konfigurierte Standardplattform mit dokumentierten Verbindungen und täglichen Beispielberichten.",
+    "start": "2026-03-01",
+    "end": "2026-07-31",
+    "activity": "routine",
+    "assignments": [{"person_id": "eva", "person_days": "30"}]
+  }]
+}
