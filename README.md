@@ -75,15 +75,29 @@ Rechenweg je Zuordnung: Personentage mal konfigurierte Tagesstunden mal Entgeltk
 
 ## Beispielausgabe
 
-Die tatsächlichen Beispielwerte werden nach der ersten erfolgreichen CI-Ausführung hier eingetragen.
+Gemessene Ausgabe für `examples/logistikplaner.yaml` aus der unten verlinkten CI-Ausführung. Alle fünf Textmerkmale und die Routineabgrenzung stehen auf `ok`; dies bestätigt keine Förderfähigkeit.
+
+| AP | FuE-Personal nach Abzug | Zulage unter Annahmen |
+| --- | ---: | ---: |
+| F1 | 13.920,00 EUR | 5.846,40 EUR |
+| F2 | 24.000,00 EUR | 10.080,00 EUR |
+| R1, Routine | 0,00 EUR | 0,00 EUR |
+| Gesamt | 37.920,00 EUR | 15.926,40 EUR |
+
+Die Kostenbasis einschließlich Gemeinkosten beträgt im Beispiel 45.504,00 EUR. Beim bewussten Routinebeispiel `datenplattform.json` meldet die Routineabgrenzung `missing`; die berechnete Zulage unter den Eingabeannahmen beträgt 0,00 EUR.
 
 ## Gemessene CI-Ergebnisse
 
 <!-- CI_METRICS_START -->
 | Messwert | GitHub Actions |
-| --- | --- |
-| Tests und Abdeckung | Erste abgeschlossene Messung steht aus |
+| --- | ---: |
+| pytest-Tests | 125 |
+| Fehler / Fehlschläge / Übersprungen | 0 / 0 / 0 |
+| Zeilenabdeckung | 99,18% (486/490) |
+| Zweigabdeckung | 98,18% (108/110) |
 <!-- CI_METRICS_END -->
+
+Gemessen in [GitHub Actions 41927436109](https://github.com/hamza2829/forschungszulage-assistent/actions/runs/41927436109), Commit `300f3c41b6a3ba56967dffbe964b1951befc941b`. Die drei PDFs mit zusammen elf Seiten wurden als PNG gerendert und visuell geprüft. Die Referenzen bleiben zusammen; Tabellen, Umlaute und Seitenzahlen wurden kontrolliert.
 
 CI installiert das Paket ausschließlich auf dem GitHub-Runner, führt pytest mit mindestens 80% Gesamtabdeckung aus und prüft zusätzlich mindestens 80% Zeilenabdeckung aus `coverage.xml`. Es gibt keine Abdeckungsausschlüsse. `ci/measure.py` liest echte XML-Zähler und schreibt die Tabelle und JSON-Werte in das Artefakt und die Actions-Zusammenfassung. Die aufgelösten Paketversionen werden ebenfalls aufgezeichnet.
 
