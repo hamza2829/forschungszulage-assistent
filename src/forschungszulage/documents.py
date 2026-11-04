@@ -12,7 +12,7 @@ from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import LongTable, Paragraph, SimpleDocTemplate, Spacer, TableStyle
+from reportlab.platypus import KeepTogether, LongTable, Paragraph, SimpleDocTemplate, TableStyle
 
 from .calculation import calculation_table, eur
 from .models import Project
@@ -134,10 +134,11 @@ def render_pdf(project: Project, check: dict, calculation: dict) -> bytes:
     story.append(paragraph('Offene Punkte', 'DraftHeading'))
     for point in open_points(check):
         story.append(paragraph('[OFFEN] ' + point))
-    story.append(paragraph('Verwendete Sätze und Quellen', 'DraftHeading'))
+    sources = [paragraph('Verwendete Sätze und Quellen', 'DraftHeading')]
     for key, rate in calculation['config']['rates'].items():
-        story.append(paragraph(f'{key}: {rate["value"]} {rate["unit"]}; {rate["kind"]}; Stand {rate["stand"]}. {rate["note"]}', 'DraftSmall'))
-        story.append(paragraph(rate['source'], 'DraftSmall'))
+        sources.append(paragraph(f'{key}: {rate["value"]} {rate["unit"]}; {rate["kind"]}; Stand {rate["stand"]}. {rate["note"]}', 'DraftSmall'))
+        sources.append(paragraph(rate['source'], 'DraftSmall'))
+    story.append(KeepTogether(sources))
 
     def footer(canvas, document):
         canvas.saveState()

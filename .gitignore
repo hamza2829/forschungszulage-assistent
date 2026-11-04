@@ -7,5 +7,6 @@ coverage.xml
 htmlcov/
 generated/
 ci-output/
+ci-review/
 bmf-research.pdf
 .venv/
